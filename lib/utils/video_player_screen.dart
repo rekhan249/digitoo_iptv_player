@@ -23,7 +23,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.initState();
     _controller = VideoPlayerController.networkUrl(
       Uri.parse(
-        'https://b1g.one/player_api.php?username=Bilal12&password=Bilal12&action=get_simple_data_table&stream_id=425732',
+        "",
       ),
     );
 
