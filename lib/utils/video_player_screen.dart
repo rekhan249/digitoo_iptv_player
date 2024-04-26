@@ -1,26 +1,29 @@
 import 'package:digiitoo_iptv_player/constants/colors.dart';
+import 'package:digiitoo_iptv_player/getx_controllers/get_live_category_all.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  final int index;
-  const VideoPlayerScreen({super.key, required this.index});
+  final int streamId;
+  const VideoPlayerScreen({super.key, required this.streamId});
 
   @override
   State<VideoPlayerScreen> createState() => _VideoPlayerScreenState();
 }
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+  GetLiveStreamAndCategories getLiveStreamAndCategories =
+      Get.put(GetLiveStreamAndCategories());
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
     super.initState();
-
     _controller = VideoPlayerController.networkUrl(
       Uri.parse(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+        'https://b1g.one/player_api.php?username=Bilal12&password=Bilal12&action=get_simple_data_table&stream_id=425732',
       ),
     );
 
@@ -105,3 +108,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     );
   }
 }
+
+/*
+
+
+ Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  VideoPlayerScreen(index: index)));
+
+ */

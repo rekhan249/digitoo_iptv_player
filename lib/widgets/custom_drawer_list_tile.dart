@@ -12,13 +12,20 @@ class CustomDrawerListTile extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(color: blackColors.withOpacity(0.4)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(title,
-                style: const TextStyle(
-                    color: whiteColors, fontWeight: FontWeight.bold)),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              width: 200,
+              child: Text(title,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      color: whiteColors,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12)),
+            ),
             Text(number.toString(),
                 style: const TextStyle(
                     color: whiteColors, fontWeight: FontWeight.bold)),

@@ -58,7 +58,8 @@ class _MobileTVSelectionSecreenState extends State<MobileTVSelectionSecreen> {
               ),
               Container(
                 width: screenSize.width * 0.8,
-                margin: const EdgeInsets.symmetric(vertical: 5),
+                margin: const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                 decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.3),
                     borderRadius: const BorderRadius.all(Radius.circular(16))),
@@ -106,6 +107,9 @@ class _MobileTVSelectionSecreenState extends State<MobileTVSelectionSecreen> {
                                 shrinkWrap: true,
                                 children: mobTvSelectionModelList
                                     .map((e) => RadioListTile(
+                                          dense: true,
+                                          visualDensity: VisualDensity
+                                              .adaptivePlatformDensity,
                                           controlAffinity:
                                               ListTileControlAffinity.leading,
                                           activeColor: whiteColors,

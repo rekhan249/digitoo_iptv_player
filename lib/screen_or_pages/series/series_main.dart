@@ -3,12 +3,10 @@ import 'package:digiitoo_iptv_player/constants/constants.dart';
 import 'package:digiitoo_iptv_player/getx_controllers/drawer_and_screen.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/all_cinemania_channels.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/box_office_hits.dart';
-import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/channel_history.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/continue_watcing.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/favourite_channel.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/live_ppv_envent.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/recently_add.dart';
-import 'package:digiitoo_iptv_player/screen_or_pages/cinemania_sub_screens/twenty_by_four_channel.dart';
 import 'package:digiitoo_iptv_player/widgets/custom_drawer_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,8 +25,6 @@ class _SeriesCinematicState extends State<SeriesCinematic> {
     ContinueWatching(),
     RecentlyAdd(),
     BoxOffHits(),
-    HistoryChannel(),
-    TwentyByFourChannel(),
     LivePPVevent(),
   ];
   static const List<String> _widgetTitleList = [

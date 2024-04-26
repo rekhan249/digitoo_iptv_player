@@ -48,7 +48,7 @@ class EGPSettings extends StatelessWidget {
                         ))),
                       ),
                       const Text(
-                        "$deviceOptions | Settings| EGP",
+                        "$deviceOptions | Settings | EGP",
                         style: TextStyle(
                             color: whiteColors,
                             fontSize: 16,

@@ -42,7 +42,7 @@ class GeneralSettings extends StatelessWidget {
                         ))),
                       ),
                       const Text(
-                        "$deviceOptions | Settings| General Settings",
+                        "$deviceOptions | Settings | General Settings",
                         style: TextStyle(
                             color: whiteColors,
                             fontSize: 16,

@@ -1,6 +1,6 @@
 import 'package:digiitoo_iptv_player/constants/colors.dart';
-import 'package:digiitoo_iptv_player/screen_or_pages/cinemania.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/live_cinematice.dart';
+import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/cinemania.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/egp_with_live/egp_with_live_page.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/series/series_main.dart';
 import 'package:digiitoo_iptv_player/utils/setting_of_apps/app_settings_app.dart';
@@ -236,16 +236,16 @@ class CinematicHome extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(left: 30, right: 30),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      "deviceOptions",
-                      style: TextStyle(color: whiteColors, fontSize: 16),
+                      "Expiration : ${DateFormat("MMM dd,yyyy").format(DateTime.now()).toString()}",
+                      style: const TextStyle(color: whiteColors, fontSize: 16),
                     ),
-                    Text(
-                      "deviceOptions",
+                    const Text(
+                      "Logged in : adfs",
                       style: TextStyle(color: whiteColors, fontSize: 16),
                     ),
                   ],

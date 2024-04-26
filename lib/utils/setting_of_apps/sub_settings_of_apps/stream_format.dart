@@ -40,7 +40,7 @@ class StreamFormat extends StatelessWidget {
                         ))),
                       ),
                       const Text(
-                        "$deviceOptions | Settings| Stream Format",
+                        "$deviceOptions | Settings | Stream Format",
                         style: TextStyle(
                             color: whiteColors,
                             fontSize: 16,

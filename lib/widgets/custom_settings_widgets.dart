@@ -2,8 +2,13 @@ import 'package:digiitoo_iptv_player/constants/colors.dart';
 import 'package:digiitoo_iptv_player/constants/constants.dart';
 import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/automation.dart';
 import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/egp_setting.dart';
+import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/external_palyers.dart';
 import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/general_setting.dart';
+import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/parental_control.dart';
+import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/player_selection.dart';
+import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/player_setting.dart';
 import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/stream_format.dart';
+import 'package:digiitoo_iptv_player/utils/setting_of_apps/sub_settings_of_apps/time_format.dart';
 
 import 'package:flutter/material.dart';
 
@@ -43,31 +48,31 @@ class CustomSettingWidget extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const GeneralSettings(),
+                builder: (context) => const TimeFormat(),
               ));
         } else if (index == 5) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const GeneralSettings(),
+                builder: (context) => const ParentalControll(),
               ));
         } else if (index == 6) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const GeneralSettings(),
+                builder: (context) => const PlayerSelection(),
               ));
         } else if (index == 7) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const GeneralSettings(),
+                builder: (context) => const PlayerSettings(),
               ));
         } else if (index == 8) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const GeneralSettings(),
+                builder: (context) => const ExternalPlayers(),
               ));
         } else if (index == 9) {
           Navigator.push(

@@ -1,3 +1,6 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.editor.showIcons": true,
+  "window.autoDetectColorScheme": false
 }

@@ -124,7 +124,7 @@ class _PlayListLoadingState extends State<PlayListLoading> {
                                                   onChanged: (val) {
                                                     controller
                                                         .selectFileOrM3UorMac(
-                                                            val!);
+                                                            val!, context);
                                                   },
                                                 ),
                                               ))

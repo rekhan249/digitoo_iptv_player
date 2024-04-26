@@ -40,6 +40,9 @@ dependencies:
   flutter_video_player_plugin: ^0.0.3
   flutter_dialogs: ^3.0.0
   video_player: ^2.8.4
+  http: ^1.2.1
+  fluttertoast: ^8.2.5
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
