@@ -20,28 +20,47 @@ class BoxOffHits extends StatelessWidget {
               builder:
                   (context, AsyncSnapshot<List<LiveCategories?>> snapshot) {
                 if (!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.white,
+                  ));
                 }
+                final listMovies = snapshot.data!
+                    .where((element) =>
+                        element!.categoryName!.contains("Box Office Hits"))
+                    .toList();
                 return GridView.builder(
                   shrinkWrap: true,
-                  itemCount: cinematicChannelImages.length,
+                  itemCount: listMovies.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 6, childAspectRatio: 0.7),
+                      crossAxisCount: 6, childAspectRatio: 0.8),
                   itemBuilder: (context, index) {
+                    final singleMovies = listMovies[index];
                     return Container(
-                      margin: const EdgeInsets.all(4),
+                      margin: const EdgeInsets.only(left: 4, bottom: 8),
                       decoration: const BoxDecoration(
-                          color: blackColors,
+                          color: Color.fromARGB(145, 5, 40, 7),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Column(
                         children: [
-                          Image.network(
-                              height: 80, cinematicChannelImages[index]),
-                          const Padding(
-                            padding: EdgeInsets.all(4.0),
+                          ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Image.network(
+                                height: 80,
+                                centerSlice: Rect.largest,
+                                fit: BoxFit.fitWidth,
+                                cinematicChannelImages[index],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(4.0),
                             child: Text(
-                              "All are new and different",
-                              style: TextStyle(color: whiteColors),
+                              singleMovies!.categoryName.toString(),
+                              style: const TextStyle(color: whiteColors),
                             ),
                           ),
                         ],

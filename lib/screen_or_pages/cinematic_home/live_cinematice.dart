@@ -106,6 +106,7 @@ import 'package:digiitoo_iptv_player/screen_or_pages/live_cinematic_sub_screens/
 import 'package:digiitoo_iptv_player/screen_or_pages/live_cinematic_sub_screens/us_subs/spectrum.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/live_cinematic_sub_screens/us_subs/sports_us.dart';
 import 'package:digiitoo_iptv_player/widgets/custom_drawer_list_tile.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -368,16 +369,19 @@ class _LiveCinemaniaState extends State<LiveCinemania> {
           backgroundColor: const Color.fromARGB(255, 9, 36, 84),
           actions: [
             SizedBox(
-              width: 200,
+              width: 260,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
                       child: TextFormField(
-                    decoration: const InputDecoration(
-                        border:
-                            UnderlineInputBorder(borderSide: BorderSide.none),
-                        suffixIcon: Icon(
+                    cursorColor: whiteColors,
+                    decoration: InputDecoration(
+                        fillColor: blackColors.withOpacity(0.2),
+                        filled: true,
+                        border: const UnderlineInputBorder(
+                            borderSide: BorderSide.none),
+                        suffixIcon: const Icon(
                           Icons.search,
                           color: whiteColors,
                         )),
@@ -387,12 +391,12 @@ class _LiveCinemaniaState extends State<LiveCinemania> {
               ),
             )
           ]),
-      drawer: Drawer(
+      drawer: Container(
         width: 260,
-        backgroundColor: Colors.black.withOpacity(0.5),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
-          child: ListView(
+        margin: const EdgeInsets.only(top: 35),
+        child: Drawer(
+          backgroundColor: blackColors.withOpacity(0.1),
+          child: Column(
             children: [
               TextFormField(
                 decoration: InputDecoration(
@@ -405,34 +409,43 @@ class _LiveCinemaniaState extends State<LiveCinemania> {
                     border: const UnderlineInputBorder(
                         borderSide: BorderSide.none)),
               ),
-              kGapsTwenty,
-              ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: liveScreensString.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          for (int i = 0; i < liveScreensString.length; i++) {
-                            if (index == i) {
-                              titleAndBodychangeDrawer.updateIndex(i);
-                              Navigator.pop(context);
-                            }
-                          }
-                        },
-                        child: CustomDrawerListTile(
-                            number: 0, title: liveScreensString[index]),
-                      ),
-                      const Divider(
-                        color: whiteColors,
-                        height: 0.1,
-                        thickness: 0.5,
-                      )
-                    ],
-                  );
-                },
+              SingleChildScrollView(
+                child: Container(
+                  height: 270,
+                  decoration: const BoxDecoration(),
+                  child: ListView.builder(
+                    padding: const EdgeInsets.symmetric(vertical: 0),
+                    dragStartBehavior: DragStartBehavior.start,
+                    scrollDirection: Axis.vertical,
+                    itemCount: liveScreensString.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              for (int i = 0;
+                                  i < liveScreensString.length;
+                                  i++) {
+                                if (index == i) {
+                                  titleAndBodychangeDrawer.updateIndex(i);
+                                  Navigator.pop(context);
+                                }
+                              }
+                            },
+                            child: CustomDrawerListTile(
+                                number: 0, title: liveScreensString[index]),
+                          ),
+                          const Divider(
+                            color: whiteColors,
+                            height: 0.1,
+                            thickness: 0.5,
+                          )
+                        ],
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           ),

@@ -38,7 +38,8 @@ class LiveAllCinematic extends StatelessWidget {
                   final singleData = dataFromSnapshot[index];
                   return Container(
                     margin: const EdgeInsets.all(4.0),
-                    decoration: const BoxDecoration(color: blackColors),
+                    decoration:
+                        BoxDecoration(color: blackColors.withOpacity(0.3)),
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -68,23 +69,16 @@ class LiveAllCinematic extends StatelessWidget {
                                     );
                                   },
                                 ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  singleData.name.toString(),
-                                  style: const TextStyle(
-                                      color: whiteColors, fontSize: 14),
-                                ),
-                                Text(
-                                  singleData.categoryId.toString(),
-                                  style: const TextStyle(color: whiteColors),
-                                ),
-                              ],
+                          Container(
+                            width: 220,
+                            padding: const EdgeInsets.only(left: 16.0),
+                            child: Text(
+                              overflow: TextOverflow.ellipsis,
+                              softWrap: true,
+                              maxLines: 2,
+                              singleData.name.toString(),
+                              style: const TextStyle(
+                                  color: whiteColors, fontSize: 14),
                             ),
                           ),
                         ],

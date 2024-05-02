@@ -5,8 +5,8 @@ import 'package:digiitoo_iptv_player/models/live_category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TremorsCollection extends StatelessWidget {
-  const TremorsCollection({super.key});
+class BollywoodMovies extends StatelessWidget {
+  const BollywoodMovies({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class TremorsCollection extends StatelessWidget {
                   ));
                 }
                 final listMovies = snapshot.data!
-                    .where((element) =>
-                        element!.categoryName!.contains("Tremors Collection"))
+                    .where((element) => element!.categoryName!
+                        .contains("4K Bollywood Classic Movie"))
                     .toList();
                 return GridView.builder(
                   shrinkWrap: true,

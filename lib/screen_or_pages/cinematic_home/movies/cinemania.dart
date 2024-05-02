@@ -28,7 +28,7 @@ import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_m
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/eng_movies2016.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/eng_movies23_24.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/fast_and_furious.dart';
-import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/genzel_wagington_collect.dart';
+import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/denzel_wagington_collect.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/ghosht_movies_collect.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/gippy_garewal_punjabi.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/god_father_collect.dart';
@@ -73,6 +73,7 @@ import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_m
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/punjabi_stage_dramas.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/quran.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/rambo.dart';
+import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/south_african_movies.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/spider_man.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/sports_replays.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/stage_drama.dart';
@@ -99,6 +100,7 @@ import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_m
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/wrong_turn.dart';
 import 'package:digiitoo_iptv_player/screen_or_pages/cinematic_home/movies/sub_movies/xmen.dart';
 import 'package:digiitoo_iptv_player/widgets/custom_drawer_list_tile.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -137,6 +139,7 @@ class _MoviesCinematicState extends State<MoviesCinematic> {
     HindiMovie90(),
     BollywoodClassicMovies(),
     BestOf80Movies(),
+    SouthAfricationMovies(),
     PakMovies(),
     PakTeleFilms(),
     KidsMovies(),
@@ -237,6 +240,7 @@ class _MoviesCinematicState extends State<MoviesCinematic> {
     "HINDI MOVIES 90'S",
     "BOLLYWOOD CLASSIC MOVIES",
     "BEST OF 80S MOVIES",
+    "SOUTHAFRICANMOVIES",
     "PAKISTANI MOVIES",
     "PAKISTANI TELEFILMS",
     "KIDS MOVIES",
@@ -366,54 +370,60 @@ class _MoviesCinematicState extends State<MoviesCinematic> {
               ),
             )
           ]),
-      drawer: Drawer(
+      drawer: Container(
         width: 260,
-        backgroundColor: Colors.black.withOpacity(0.5),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
-          child: ListView(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                    fillColor: Colors.grey.shade700,
-                    filled: true,
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: whiteColors,
-                    ),
-                    border: const UnderlineInputBorder(
-                        borderSide: BorderSide.none)),
-              ),
-              kGapsTwenty,
-              ListView.builder(
-                itemCount: cinematicString.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          for (int i = 0; i < cinematicString.length; i++) {
-                            if (index == i) {
-                              titleAndBodychangeDrawer.updateIndex(i);
-                              Navigator.pop(context);
+        margin: const EdgeInsets.only(top: 35),
+        child: Drawer(
+          backgroundColor: blackColors.withOpacity(0.1),
+          child: Column(children: [
+            TextFormField(
+              decoration: InputDecoration(
+                  fillColor: Colors.grey.shade700,
+                  filled: true,
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: whiteColors,
+                  ),
+                  border:
+                      const UnderlineInputBorder(borderSide: BorderSide.none)),
+            ),
+            SingleChildScrollView(
+              child: Container(
+                height: 270,
+                decoration: const BoxDecoration(),
+                child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 0),
+                  dragStartBehavior: DragStartBehavior.start,
+                  scrollDirection: Axis.vertical,
+                  itemCount: liveScreensString.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            for (int i = 0; i < cinematicString.length; i++) {
+                              if (index == i) {
+                                titleAndBodychangeDrawer.updateIndex(i);
+                                Navigator.pop(context);
+                              }
                             }
-                          }
-                        },
-                        child: CustomDrawerListTile(
-                            number: 1, title: cinematicString[index]),
-                      ),
-                      const Divider(
-                        color: whiteColors,
-                        height: 0.1,
-                        thickness: 0.5,
-                      )
-                    ],
-                  );
-                },
+                          },
+                          child: CustomDrawerListTile(
+                              number: 1, title: cinematicString[index]),
+                        ),
+                        const Divider(
+                          color: whiteColors,
+                          height: 0.1,
+                          thickness: 0.5,
+                        )
+                      ],
+                    );
+                  },
+                ),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
       body: Container(

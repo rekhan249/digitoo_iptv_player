@@ -25,36 +25,42 @@ class OprahWithMeghanAndHarry extends StatelessWidget {
                     color: Colors.white,
                   ));
                 }
-                final dataFromSnapshot = snapshot.data;
+                final listMovies = snapshot.data!
+                    .where((element) => element!.categoryName!
+                        .contains("Oprah With Meghan & Harry"))
+                    .toList();
                 return GridView.builder(
                   shrinkWrap: true,
-                  itemCount: dataFromSnapshot!.length,
+                  itemCount: listMovies.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 5, childAspectRatio: 0.7),
+                      crossAxisCount: 6, childAspectRatio: 0.8),
                   itemBuilder: (context, index) {
+                    final singleMovies = listMovies[index];
                     return Container(
-                      margin: const EdgeInsets.all(4),
+                      margin: const EdgeInsets.only(left: 4, bottom: 8),
                       decoration: const BoxDecoration(
-                          color: blackColors,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                          color: Color.fromARGB(145, 5, 40, 7),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Image.network(
-                              cinematicChannelImages[index],
+                          ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Image.network(
+                                height: 80,
+                                centerSlice: Rect.largest,
+                                fit: BoxFit.fitWidth,
+                                cinematicChannelImages[index],
+                              ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 4, right: 4, top: 12),
-                            child: Center(
-                              child: Text(
-                                dataFromSnapshot[index]!
-                                    .categoryName
-                                    .toString(),
-                                style: const TextStyle(color: whiteColors),
-                              ),
+                            padding: const EdgeInsets.all(4.0),
+                            child: Text(
+                              singleMovies!.categoryName.toString(),
+                              style: const TextStyle(color: whiteColors),
                             ),
                           ),
                         ],

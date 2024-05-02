@@ -9,10 +9,10 @@ import 'package:http/http.dart' as http;
 
 class GetLiveStreamAndCategories extends GetxController {
   Future<List<LiveStreamAndCategory?>> getLiveStreamAndCategoryDataFrom(
-      BuildContext context, int index) async {
+      BuildContext context, String categoryId) async {
     List<LiveStreamAndCategory?> liveCategoriesList = [];
     try {
-      String particularId = "$getLiveStreamsAndCategoryIdApi$index";
+      String particularId = "$getLiveStreamsAndCategoryIdApi$categoryId";
       var response = await http.get(
         Uri.parse(particularId),
         headers: {

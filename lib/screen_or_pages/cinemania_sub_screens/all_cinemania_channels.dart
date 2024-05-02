@@ -14,7 +14,7 @@ class AllCineManiaChannels extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
           child: FutureBuilder<List<LiveCategories?>>(
               future: getVodCategories.getVodCategoriesDataFrom(context),
               builder:
@@ -30,31 +30,35 @@ class AllCineManiaChannels extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: dataFromSnapshot!.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 5, childAspectRatio: 0.7),
+                      crossAxisCount: 6, childAspectRatio: 0.8),
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: const EdgeInsets.all(4),
+                      margin: const EdgeInsets.only(left: 4, bottom: 8),
                       decoration: const BoxDecoration(
-                          color: blackColors,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                          color: Color.fromARGB(145, 5, 40, 7),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Image.network(
-                              cinematicChannelImages[index],
+                          ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Image.network(
+                                height: 80,
+                                centerSlice: Rect.largest,
+                                fit: BoxFit.fitWidth,
+                                cinematicChannelImages[index],
+                              ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 4, right: 4, top: 12),
-                            child: Center(
-                              child: Text(
-                                dataFromSnapshot[index]!
-                                    .categoryName
-                                    .toString(),
-                                style: const TextStyle(color: whiteColors),
-                              ),
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              dataFromSnapshot[index]!.categoryName.toString(),
+                              style: const TextStyle(
+                                  color: whiteColors, fontSize: 10),
                             ),
                           ),
                         ],
